@@ -1,260 +1,217 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Setiawan Jaya Usaha</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-      background: linear-gradient(to bottom, #2c003e, #000000);
-      background-attachment: fixed;
-      background-size: cover;
-    }
-    body::before {
-      content: "";
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6f/Batik_Pattern_Bunga.png');
-      background-size: 300px;
-      background-repeat: repeat;
-      opacity: 0.05;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: -1;
-    }
-    header {
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-    .brand {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: white;
-      text-shadow: 1px 1px 4px #000;
-    }
-    nav {
-      display: flex;
-      gap: 1rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      border-radius: 12px;
-      transition: 0.3s;
-    }
-    nav a:hover, nav a.active {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-    main {
-      padding-top: 2rem;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .card {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      margin-bottom: 3rem;
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      border-bottom: 3px solid rgba(255,255,255,0.3);
-      display: inline-block;
-      padding-bottom: 0.4rem;
-    }
-    .features, .gallery-grid {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-    .feature-card {
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 16px;
-      padding: 1.5rem;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-      transition: 0.3s;
-    }
-    .feature-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .gallery-item {
-      background: rgba(255,255,255,0.1);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.4);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-    }
-    .gallery-item img {
-      width: 100%;
-      display: block;
-    }
-    .gallery-caption {
-      padding: 0.75rem;
-      font-weight: 600;
-      background: rgba(255,255,255,0.08);
-    }
-    form {
-      display: none;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 600px;
-      margin: auto;
-    }
-    form input, form textarea {
-      padding: 1rem;
-      border-radius: 12px;
-      border: none;
-      font-size: 1rem;
-      background: rgba(255,255,255,0.2);
-      color: white;
-    }
-    form textarea::placeholder, form input::placeholder {
-      color: #eee;
-    }
-    form button {
-      background-color: #6a1b9a;
-      color: #fff;
-      padding: 1rem;
-      border: none;
-      border-radius: 12px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    form button:hover {
-      background-color: #4a148c;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #fff;
-      background: rgba(0,0,0,0.2);
-      font-size: 0.9rem;
-    }
-    .toggle-form {
-      text-align: center;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 1.2rem;
-      background-color: rgba(255,255,255,0.1);
-      padding: 1rem;
-      border-radius: 10px;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="brand">Setiawan Jaya Usaha</div>
-  <nav>
-    <a href="#beranda" class="active">Beranda</a>
-    <a href="#tentang">Tentang</a>
-    <a href="#layanan">Layanan</a>
-    <a href="#galeri">Galeri</a>
-    <a href="#kontak">Kontak</a>
-  </nav>
-</header>
-
-<main id="beranda">
-
-  <section id="tentang" class="card" data-aos="fade-up">
-    <h2>Tentang Kami</h2>
-    <p>
-      Setiawan Jaya Usaha adalah mitra bisnis terpercaya untuk solusi usaha modern dengan cita rasa lokal. Kami hadir membantu Anda dalam pengembangan, pemasaran, dan inovasi produk yang berkelanjutan.
-    </p>
-  </section>
-
-  <section id="layanan" class="card" data-aos="fade-right">
-    <h2>Layanan Kami</h2>
-    <div class="features">
-      <div class="feature-card" data-aos="zoom-in">
-        <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
-        <h3>Konsultasi Bisnis</h3>
-        <p>Strategi dan analisa pasar yang tepat untuk ekspansi usaha Anda.</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="layar-dalam">
+        <div class="logo">
+          <a href=""><img src="asset/logo-white.png" class="putih" /></a>
+          <a href=""><img src="asset/logo-black.png" class="hitam" /></a>
+        </div>
+        <div class="menu">
+          <a href="#" class="tombol-menu">
+            <span class="garis"></span>
+            <span class="garis"></span>
+            <span class="garis"></span>
+          </a>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#aboutus">About Us</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="feature-card" data-aos="zoom-in">
-        <div class="feature-icon"><i class="fa-solid fa-bullhorn"></i></div>
-        <h3>Marketing Digital</h3>
-        <p>Optimalkan potensi usaha melalui media sosial & digital campaign.</p>
-      </div>
-      <div class="feature-card" data-aos="zoom-in">
-        <div class="feature-icon"><i class="fa-solid fa-box"></i></div>
-        <h3>Pengembangan Produk</h3>
-        <p>Rancang produk unggulan yang diminati konsumen lokal & global.</p>
-      </div>
+    </nav>
+    <div class="layar-penuh">
+      <header id="home">
+        <div class="overlay"></div>
+        <video autoplay muted loop>
+          <source src="asset/video-indonesia.mp4" type="video/mp4" />
+        </video>
+        <div class="intro">
+          <h3>Visit Indonesia</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi,
+            officiis?
+          </p>
+          <p>
+            <a href="" class="tombol">MORE INFO</a>
+          </p>
+        </div>
+      </header>
+      <main>
+        <section id="aboutus">
+          <div class="layar-dalam">
+            <h3>About Us</h3>
+            <p class="ringkasan">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Obcaecati, cupiditate.
+            </p>
+            <div class="konten-isi">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit,
+                iure vero soluta exercitationem deleniti possimus cupiditate
+                autem facilis magni illum?
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="abuabu" id="support">
+          <div class="layar-dalam support">
+            <div>
+              <img src="asset/matahari.png" />
+              <h6>In Every Condition</h6>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+                illum recusandae nostrum. Obcaecati, quos vel.
+              </p>
+            </div>
+            <div>
+              <img src="asset/tas.png" />
+              <h6>Professional Team</h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Exercitationem, ea voluptatem corporis molestias obcaecati
+                deleniti.
+              </p>
+            </div>
+            <div>
+              <img src="asset/kompas.png" />
+              <h6>Expert Hikers</h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Exercitationem, ea voluptatem corporis molestias obcaecati
+                deleniti.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="gallery">
+          <div><img src="asset/foto1.jpg" /></div>
+          <div><img src="asset/foto2.jpg" /></div>
+          <div><img src="asset/foto3.jpg" /></div>
+          <div><img src="asset/foto4.jpg" /></div>
+          <div><img src="asset/foto5.jpg" /></div>
+          <div><img src="asset/foto6.jpg" /></div>
+          <div><img src="asset/foto7.jpg" /></div>
+          <div><img src="asset/foto8.jpg" /></div>
+        </section>
+        <section class="quote">
+          <div class="layar-dalam">
+            <p>Jogja terbuat dari rindu, pulang dan angkringan.</p>
+          </div>
+        </section>
+        <section id="team">
+          <div class="layar-dalam">
+            <h3>Our Team</h3>
+            <p class="ringkasan">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
+              laborum!
+            </p>
+            <div class="tim">
+              <div>
+                <img src="asset/tim1.jpg" />
+                <h6>John Doe</h6>
+                <span>Indonesia</span>
+              </div>
+              <div>
+                <img src="asset/tim2.jpg" />
+                <h6>John Brown</h6>
+                <span>France</span>
+              </div>
+              <div>
+                <img src="asset/tim3.jpg" />
+                <h6>Michaell</h6>
+                <span>Spain</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="abuabu" id="blog">
+          <div class="layar-dalam">
+            <h3>Lastest Blog</h3>
+            <p class="ringkasan">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi,
+              fugit.
+            </p>
+            <div class="blog">
+              <div class="area">
+                <div
+                  class="gambar"
+                  style="background-image: url('asset/blog1.jpg')"
+                ></div>
+                <div class="text">
+                  <article>
+                    <h4><a href="#">What About Bromo?</a></h4>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Placeat, est omnis? Quas reprehenderit rem nesciunt.
+                    </p>
+                  </article>
+                </div>
+              </div>
+              <div class="area">
+                <div
+                  class="gambar"
+                  style="background-image: url('asset/blog2.jpg')"
+                ></div>
+                <div class="text">
+                  <article>
+                    <h4><a href="#">What About Yogyakarta?</a></h4>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Placeat, est omnis? Quas reprehenderit rem nesciunt.
+                    </p>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer id="contact">
+        <div class="layar-dalam">
+          <div>
+            <h5>Info</h5>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam,
+            sunt?
+          </div>
+          <div>
+            <h5>Contact</h5>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam,
+            sunt?
+          </div>
+          <div>
+            <h5>Help</h5>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam,
+            sunt?
+          </div>
+          <div>
+            <h5>Sitemap</h5>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam,
+            sunt?
+          </div>
+        </div>
+        <div class="layar-dalam">
+          <div class="copyright">&copy; 2021 Travelling Indonesia</div>
+        </div>
+      </footer>
     </div>
-  </section>
-
-  <section id="galeri" class="card" data-aos="zoom-in-up">
-    <h2>Galeri Produk</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item" data-aos="fade-up">
-        <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=600&q=80" alt="Batik" />
-        <div class="gallery-caption">Handcrafted Batik</div>
-      </div>
-      <div class="gallery-item" data-aos="fade-up">
-        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80" alt="Kayu" />
-        <div class="gallery-caption">Kerajinan Kayu</div>
-      </div>
-      <div class="gallery-item" data-aos="fade-up">
-        <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=600&q=80" alt="Perhiasan" />
-        <div class="gallery-caption">Perhiasan Etnik</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="kontak" class="card" data-aos="fade-left">
-    <div class="toggle-form" onclick="document.querySelector('form').style.display='flex'">Hubungi Kami</div>
-    <form>
-      <input type="text" placeholder="Nama Lengkap" required />
-      <input type="email" placeholder="Email Anda" required />
-      <textarea placeholder="Pesan Anda..." rows="5" required></textarea>
-      <button type="submit">Kirim</button>
-    </form>
-  </section>
-
-</main>
-
-<a href="https://wa.me/6281234567890" target="_blank"
-   style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background-color: #25d366; color: white; padding: 14px 16px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-align: center;">
-  <i class="fab fa-whatsapp" style="font-size: 24px;"></i>
-</a>
-
-<footer>
-  &copy; 2025 Setiawan Jaya Usaha. Semua Hak Dilindungi.
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: true });
-</script>
-
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="javascript.js"></script>
+  </body>
 </html>
