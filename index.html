@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Indonesia Marketing</title>
+  <style>
+    /* Reset dasar */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f5e1c8, #d74e09);
+      color: #3a1a00;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #a73e07;
+      padding: 20px 40px;
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #7c2a00;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #4d1f00cc;
+      font-weight: 500;
+    }
+
+    /* Tombol utama */
+    .btn-primary {
+      background-color: #d74e09;
+      color: #fff;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: 0 5px 10px #b93c07aa;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin-top: 30px;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background-color: #b93c07;
+      transform: scale(1.05);
+    }
+
+    /* Section fitur */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+
+    .feature-card {
+      background-color: #fff0e6;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 15px rgba(215, 78, 9, 0.2);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(215, 78, 9, 0.35);
+    }
+
+    .feature-icon {
+      font-size: 50px;
+      color: #d74e09;
+      margin-bottom: 15px;
+    }
+
+    .feature-title {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #7c2a00;
+    }
+
+    .feature-desc {
+      font-size: 1rem;
+      color: #5e2c00;
+    }
+
+    /* Testimonial */
+    .testimonial-section {
+      background-color: #a73e07;
+      color: #fff;
+      padding: 60px 20px;
+      border-radius: 30px;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .testimonial-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      letter-spacing: 1.5px;
+    }
+
+    .testimonial {
+      max-width: 600px;
+      margin: 0 auto;
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: "“";
+      font-size: 4rem;
+      position: absolute;
+      left: -40px;
+      top: -10px;
+      color: #fff3e6;
+    }
+    .testimonial::after {
+      content: "”";
+      font-size: 4rem;
+      position: absolute;
+      right: -40px;
+      bottom: -10px;
+      color: #fff3e6;
+    }
+
+    .testimonial-author {
+      margin-top: 25px;
+      text-align: right;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #ffdfb3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #7c2a00;
+      color: #ffdfb3;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .btn-primary {
+        padding: 12px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Nusantara Marketing
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Solusi Marketing Indonesia</h1>
+      <p>Membangun brand dan bisnis Anda dengan sentuhan kearifan lokal dan strategi modern.</p>
+      <button class="btn-primary">Mulai Sekarang</button>
+    </section>
+
+    <section class="features">
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3 class="feature-title">Strategi Digital</h3>
+        <p class="feature-desc">Optimasi pemasaran digital dengan pendekatan lokal yang relevan dan efektif.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌿</div>
+        <h3 class="feature-title">Brand Lokal</h3>
+        <p class="feature-desc">Membangun brand yang mengangkat budaya dan nilai Indonesia agar lebih kuat di pasar.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3 class="feature-title">Jaringan Luas</h3>
+        <p class="feature-desc">Menghubungkan bisnis Anda dengan komunitas dan pasar lokal yang tepat sasaran.</p>
+      </div>
+    </section>
+
+    <section class="testimonial-section">
+      <h2>Apa Kata Klien Kami</h2>
+      <div class="testimonial">
+        "Nusantara Marketing benar-benar memahami karakter pasar Indonesia. Penjualan kami meningkat signifikan setelah bekerja sama."
+        <div class="testimonial-author">– Rina Sari, Pemilik UMKM Batik</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Nusantara Marketing | Semua Hak Dilindungi
+  </footer>
+
+</body>
+</html>
