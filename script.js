@@ -1,48 +1,28 @@
-//menu
-var tombolMenu = $(".tombol-menu");
-var menu = $("nav .menu ul");
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
 
-function klikMenu() {
-    tombolMenu.click(function () {
-        menu.toggle();
+  // Toggle mobile menu
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+
+  // Close menu on link click & smooth scroll
+  document.querySelectorAll('.menu a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop - 58,
+          behavior: 'smooth'
+        });
+      }
+      // close menu on mobile after click
+      if (menu.classList.contains('active')) {
+        menu.classList.remove('active');
+      }
     });
-    menu.click(function () {
-        menu.toggle();
-    });
-}
-
-$(document).ready(function () {
-    var width = $(window).width();
-    if (width < 990) {
-        klikMenu();
-    }
-})
-
-//check lebar
-$(window).resize(function () {
-    var width = $(window).width();
-    if (width > 989) {
-        menu.css("display", "block");
-        //display:block
-    } else {
-        menu.css("display", "none");
-    }
-    klikMenu();
-});
-
-//efek scroll 
-$(document).ready(function () {
-    var scroll_pos = 0;
-    $(document).scroll(function () {
-        scroll_pos = $(this).scrollTop();
-        if (scroll_pos > 0) {
-            $("nav").addClass("putih");
-            $("nav img.hitam").show();
-            $("nav img.putih").hide();
-        } else {
-            $("nav").removeClass("putih");
-            $("nav img.hitam").hide();
-            $("nav img.putih").show();
-        }
-    })
+  });
 });
