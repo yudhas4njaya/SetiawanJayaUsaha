@@ -1,240 +1,559 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Indonesia Marketing</title>
-  <style>
-    /* Reset dasar */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Setiawan Jaya Usaha - Solusi Bisnis Modern Indonesia</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
-    body {
-      background: linear-gradient(135deg, #f5e1c8, #d74e09);
-      color: #3a1a00;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  body, html {
+    height: 100%;
+    background: #1a0300;
+    color: #f3e6d8;
+    overflow-x: hidden;
+  }
 
+  /* Background animasi garis bergerak */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(45deg, rgba(215,78,9,0.15) 25%, transparent 25%, transparent 50%, rgba(215,78,9,0.15) 50%, rgba(215,78,9,0.15) 75%, transparent 75%, transparent);
+    background-size: 60px 60px;
+    animation: moveBg 20s linear infinite;
+    z-index: -1;
+  }
+  @keyframes moveBg {
+    0% {background-position: 0 0;}
+    100% {background-position: 60px 60px;}
+  }
+
+  header {
+    background: linear-gradient(90deg, #d74e09, #b93c07);
+    padding: 20px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 6px 15px rgba(215, 78, 9, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffdfb3;
+  }
+  header .brand {
+    font-weight: 700;
+    font-size: 1.9rem;
+    letter-spacing: 3px;
+    user-select: none;
+    text-shadow: 0 2px 6px #7c2a0011;
+  }
+  nav {
+    display: flex;
+    gap: 28px;
+  }
+  nav button {
+    background: none;
+    border: none;
+    color: #ffdfb3;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 12px;
+    transition: background 0.35s ease;
+    letter-spacing: 1.1px;
+    text-shadow: 0 1px 3px #7c2a0011;
+  }
+  nav button:hover,
+  nav button.active {
+    background: #ff8f00;
+    box-shadow: 0 0 14px #ff9f1ecc;
+    color: #fff;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 60px auto 100px;
+    padding: 0 20px;
+    min-height: 600px;
+    position: relative;
+  }
+
+  /* Hero dengan video background */
+  #beranda {
+    position: relative;
+    height: 450px;
+    border-radius: 25px;
+    overflow: hidden;
+    margin-bottom: 80px;
+    box-shadow: 0 15px 40px #ff7f0088;
+  }
+  #beranda video {
+    position: absolute;
+    top: 50%; left: 50%;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: brightness(0.45) contrast(1.2) saturate(1.3);
+    z-index: 1;
+  }
+  #beranda .hero-content {
+    position: relative;
+    z-index: 5;
+    color: #ffdca8;
+    text-align: center;
+    padding: 90px 20px 20px;
+  }
+  #beranda .hero-content h1 {
+    font-size: 3.6rem;
+    letter-spacing: 5px;
+    margin-bottom: 18px;
+    text-shadow: 0 3px 8px #b93c07bb;
+  }
+  #beranda .hero-content p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    max-width: 720px;
+    margin: 0 auto;
+    text-shadow: 0 1px 4px #7c2a0022;
+  }
+  #beranda .hero-content .btn-primary {
+    margin-top: 40px;
+    background: linear-gradient(45deg, #d74e09, #ff8f00);
+    color: #fff;
+    padding: 18px 50px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px #ff9f1e88;
+    transition: all 0.3s ease;
+    letter-spacing: 1.2px;
+  }
+  #beranda .hero-content .btn-primary:hover {
+    background: linear-gradient(45deg, #ff8f00, #d74e09);
+    box-shadow: 0 12px 30px #ff9f1e;
+    transform: scale(1.1);
+  }
+
+  /* Section umum */
+  section {
+    display: none;
+    animation: fadeIn 0.8s ease forwards;
+  }
+  section.active {
+    display: block;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  /* Tentang Kami */
+  #tentang {
+    background: rgba(255,255,255,0.07);
+    border-radius: 25px;
+    padding: 40px 30px;
+    margin-bottom: 80px;
+    box-shadow: 0 10px 25px #d74e0933;
+    color: #ffebd6cc;
+  }
+  #tentang h2 {
+    font-size: 2.8rem;
+    color: #ffdca8;
+    margin-bottom: 25px;
+    text-shadow: 0 1px 3px #7c2a0022;
+    text-align: center;
+  }
+  #tentang p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Layanan */
+  #layanan {
+    margin-bottom: 100px;
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 30px;
+  }
+  .feature-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-shadow: 0 8px 20px #d74e0922;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    color: #f9d9a8cc;
+  }
+  .feature-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 40px #ff7f0088;
+  }
+  .feature-icon {
+    font-size: 60px;
+    margin-bottom: 18px;
+    color: #ffb347;
+    filter: drop-shadow(0 0 5px #ffb347bb);
+  }
+  .feature-title {
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: #ffdca8;
+    text-shadow: 0 1px 4px #b93c07aa;
+  }
+  .feature-desc {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  /* Galeri */
+  #galeri {
+    margin-bottom: 100px;
+  }
+  #galeri h2 {
+    font-size: 2.8rem;
+    color: #ffdca8;
+    margin-bottom: 35px;
+    text-shadow: 0 1px 5px #7c2a0022;
+    text-align: center;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+  }
+  .gallery-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 8px 20px #d74e0922;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 0.7s forwards;
+  }
+  .gallery-item:nth-child(1) {animation-delay: 0.1s;}
+  .gallery-item:nth-child(2) {animation-delay: 0.25s;}
+  .gallery-item:nth-child(3) {animation-delay: 0.4s;}
+  .gallery-item:nth-child(4) {animation-delay: 0.55s;}
+  .gallery-item:nth-child(5) {animation-delay: 0.7s;}
+  .gallery-item:nth-child(6) {animation-delay: 0.85s;}
+
+  @keyframes fadeInUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.12);
+    filter: brightness(1.05);
+  }
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(215, 78, 9, 0.85);
+    color: #fff3d9;
+    padding: 10px 15px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+
+  /* Kontak */
+  #kontak {
+    background: rgba(255,255,255,0.07);
+    border-radius: 25px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 25px #d74e0933;
+    max-width: 600px;
+    margin: 0 auto 120px;
+  }
+  #kontak h2 {
+    font-size: 2.8rem;
+    color: #ffdca8;
+    margin-bottom: 25px;
+    text-shadow: 0 1px 3px #7c2a0022;
+    text-align: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  input, textarea {
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    resize: vertical;
+    background: #330c00;
+    color: #ffdca8;
+    box-shadow: inset 0 0 7px #b93c0755;
+    transition: box-shadow 0.3s ease;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 12px #ff8c00cc;
+    background: #4d1800;
+  }
+  button[type="submit"] {
+    background: linear-gradient(45deg, #d74e09, #ff8f00);
+    color: #fff;
+    padding: 16px 30px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px #ff9f1e88;
+    transition: all 0.3s ease;
+    letter-spacing: 1.2px;
+  }
+  button[type="submit"]:hover {
+    background: linear-gradient(45deg, #ff8f00, #d74e09);
+    box-shadow: 0 12px 30px #ff9f1e;
+    transform: scale(1.05);
+  }
+  .form-message {
+    margin-top: 10px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .form-message.success {
+    color: #7ff57f;
+  }
+  .form-message.error {
+    color: #ff6f6f;
+  }
+
+  /* Social */
+  .social-section {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    text-align: center;
+  }
+  .social-section h2 {
+    font-size: 2.8rem;
+    color: #ffdca8;
+    margin-bottom: 30px;
+    text-shadow: 0 1px 5px #7c2a0022;
+  }
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+  }
+  .social-icons a {
+    color: #ffb347;
+    font-size: 2.8rem;
+    transition: color 0.3s ease;
+  }
+  .social-icons a:hover {
+    color: #ff8f00;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
     header {
-      background-color: #a73e07;
-      padding: 20px 40px;
-      color: #fff;
-      text-align: center;
-      font-weight: 700;
-      font-size: 2rem;
-      letter-spacing: 2px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      flex-direction: column;
+      gap: 12px;
     }
-
-    main {
-      flex-grow: 1;
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
+    nav {
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-
-    .hero {
-      text-align: center;
-      margin-bottom: 60px;
+    #beranda .hero-content h1 {
+      font-size: 2.6rem;
     }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: #7c2a00;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #4d1f00cc;
-      font-weight: 500;
-    }
-
-    /* Tombol utama */
-    .btn-primary {
-      background-color: #d74e09;
-      color: #fff;
-      padding: 15px 35px;
-      border: none;
-      border-radius: 40px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      font-weight: 700;
-      box-shadow: 0 5px 10px #b93c07aa;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      margin-top: 30px;
-      display: inline-block;
-    }
-    .btn-primary:hover {
-      background-color: #b93c07;
-      transform: scale(1.05);
-    }
-
-    /* Section fitur */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-bottom: 80px;
-    }
-
-    .feature-card {
-      background-color: #fff0e6;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 8px 15px rgba(215, 78, 9, 0.2);
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 25px rgba(215, 78, 9, 0.35);
-    }
-
-    .feature-icon {
-      font-size: 50px;
-      color: #d74e09;
-      margin-bottom: 15px;
-    }
-
-    .feature-title {
-      font-weight: 700;
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-      color: #7c2a00;
-    }
-
-    .feature-desc {
-      font-size: 1rem;
-      color: #5e2c00;
-    }
-
-    /* Testimonial */
-    .testimonial-section {
-      background-color: #a73e07;
-      color: #fff;
-      padding: 60px 20px;
-      border-radius: 30px;
-      max-width: 900px;
-      margin: auto;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-
-    .testimonial-section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 40px;
-      letter-spacing: 1.5px;
-    }
-
-    .testimonial {
-      max-width: 600px;
-      margin: 0 auto;
-      font-style: italic;
-      font-size: 1.1rem;
-      line-height: 1.5;
-      position: relative;
-    }
-
-    .testimonial::before {
-      content: "“";
-      font-size: 4rem;
-      position: absolute;
-      left: -40px;
-      top: -10px;
-      color: #fff3e6;
-    }
-    .testimonial::after {
-      content: "”";
-      font-size: 4rem;
-      position: absolute;
-      right: -40px;
-      bottom: -10px;
-      color: #fff3e6;
-    }
-
-    .testimonial-author {
-      margin-top: 25px;
-      text-align: right;
-      font-weight: 700;
-      font-size: 1rem;
-      color: #ffdfb3;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px 0;
-      background-color: #7c2a00;
-      color: #ffdfb3;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-top: 40px;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-      .btn-primary {
-        padding: 12px 25px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    Nusantara Marketing
-  </header>
+<header>
+  <div class="brand">Setiawan Jaya Usaha</div>
+  <nav>
+    <button class="active" data-tab="beranda">Beranda</button>
+    <button data-tab="tentang">Tentang Kami</button>
+    <button data-tab="layanan">Layanan</button>
+    <button data-tab="galeri">Galeri</button>
+    <button data-tab="kontak">Kontak</button>
+  </nav>
+</header>
 
-  <main>
-    <section class="hero">
-      <h1>Solusi Marketing Indonesia</h1>
-      <p>Membangun brand dan bisnis Anda dengan sentuhan kearifan lokal dan strategi modern.</p>
-      <button class="btn-primary">Mulai Sekarang</button>
-    </section>
+<main>
+  <section id="beranda" class="active" aria-label="Halaman Beranda">
+    <video autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/vimeo/564369354/AdobeStock_244386.mp4?width=1280&hash=5df9d56dcb0b384cd9a7d2d13f5e8159948f75b0" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <h1>Selamat Datang di Setiawan Jaya Usaha</h1>
+      <p>Mitra terpercaya Anda dalam menghadirkan solusi bisnis modern dan inovatif dengan sentuhan khas Indonesia.</p>
+      <button class="btn-primary" onclick="document.querySelector('button[data-tab=kontak]').click()">Hubungi Kami</button>
+    </div>
+  </section>
 
-    <section class="features">
+  <section id="tentang" aria-label="Tentang Kami">
+    <h2>Tentang Kami</h2>
+    <p>
+      Setiawan Jaya Usaha berdiri dengan visi membawa kemajuan dan inovasi ke dunia bisnis Indonesia.
+      Kami menyediakan layanan terbaik yang dirancang khusus untuk memenuhi kebutuhan usaha modern Anda.
+      Dengan pengalaman bertahun-tahun dan tim ahli yang berdedikasi, kami berkomitmen memberikan hasil optimal dan pelayanan penuh kepercayaan.
+    </p>
+  </section>
+
+  <section id="layanan" aria-label="Layanan Kami">
+    <h2>Layanan Kami</h2>
+    <div class="features">
       <div class="feature-card">
-        <div class="feature-icon">📈</div>
-        <h3 class="feature-title">Strategi Digital</h3>
-        <p class="feature-desc">Optimasi pemasaran digital dengan pendekatan lokal yang relevan dan efektif.</p>
+        <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="feature-title">Konsultasi Bisnis</div>
+        <div class="feature-desc">Membantu Anda menyusun strategi bisnis yang efektif dan efisien untuk pertumbuhan usaha.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🌿</div>
-        <h3 class="feature-title">Brand Lokal</h3>
-        <p class="feature-desc">Membangun brand yang mengangkat budaya dan nilai Indonesia agar lebih kuat di pasar.</p>
+        <div class="feature-icon"><i class="fa-solid fa-bullhorn"></i></div>
+        <div class="feature-title">Marketing Digital</div>
+        <div class="feature-desc">Meningkatkan eksposur brand melalui kampanye digital dan media sosial yang tepat sasaran.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🤝</div>
-        <h3 class="feature-title">Jaringan Luas</h3>
-        <p class="feature-desc">Menghubungkan bisnis Anda dengan komunitas dan pasar lokal yang tepat sasaran.</p>
+        <div class="feature-icon"><i class="fa-solid fa-cogs"></i></div>
+        <div class="feature-title">Pengembangan Produk</div>
+        <div class="feature-desc">Mendukung inovasi produk agar selalu relevan dan menarik bagi pasar.</div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="testimonial-section">
-      <h2>Apa Kata Klien Kami</h2>
-      <div class="testimonial">
-        "Nusantara Marketing benar-benar memahami karakter pasar Indonesia. Penjualan kami meningkat signifikan setelah bekerja sama."
-        <div class="testimonial-author">– Rina Sari, Pemilik UMKM Batik</div>
+  <section id="galeri" aria-label="Galeri Produk">
+    <h2>Galeri Produk</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=600&q=80" alt="Produk A - Handcrafted Batik" />
+        <div class="gallery-caption">Handcrafted Batik</div>
       </div>
-    </section>
-  </main>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80" alt="Produk B - Kerajinan Kayu" />
+        <div class="gallery-caption">Kerajinan Kayu</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=600&q=80" alt="Produk C - Perhiasan Etnik" />
+        <div class="gallery-caption">Perhiasan Etnik</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1516912488701-49a0724e1b22?auto=format&fit=crop&w=600&q=80" alt="Produk D - Kain Tenun Tradisional" />
+        <div class="gallery-caption">Kain Tenun Tradisional</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Produk E - Souvenir Handmade" />
+        <div class="gallery-caption">Souvenir Handmade</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Produk F - Alat Musik Tradisional" />
+        <div class="gallery-caption">Alat Musik Tradisional</div>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    © 2025 Nusantara Marketing | Semua Hak Dilindungi
-  </footer>
+  <section id="kontak" aria-label="Form Kontak">
+    <h2>Hubungi Kami</h2>
+    <form id="contactForm" novalidate>
+      <input type="text" id="name" name="name" placeholder="Nama Lengkap" required minlength="3" />
+      <input type="email" id="email" name="email" placeholder="Email" required />
+      <textarea id="message" name="message" rows="5" placeholder="Pesan Anda" required minlength="10"></textarea>
+      <button type="submit">Kirim Pesan</button>
+      <div class="form-message" id="formMessage"></div>
+    </form>
+  </section>
+</main>
+
+<script>
+  // Tab navigasi
+  const tabs = document.querySelectorAll('nav button');
+  const sections = document.querySelectorAll('main section');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.getAttribute('data-tab');
+      sections.forEach(sec => {
+        if(sec.id === target) {
+          sec.classList.add('active');
+          sec.focus?.();
+        } else {
+          sec.classList.remove('active');
+        }
+      });
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+  });
+
+  // Form kontak validasi sederhana dan pesan sukses/error
+  const form = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formMessage.textContent = '';
+    formMessage.className = 'form-message';
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if(name.length < 3) {
+      formMessage.textContent = 'Nama minimal 3 karakter.';
+      formMessage.classList.add('error');
+      return;
+    }
+    if(!validateEmail(email)) {
+      formMessage.textContent = 'Masukkan email yang valid.';
+      formMessage.classList.add('error');
+      return;
+    }
+    if(message.length < 10) {
+      formMessage.textContent = 'Pesan minimal 10 karakter.';
+      formMessage.classList.add('error');
+      return;
+    }
+
+    // Simulasi pengiriman (bisa diganti dengan AJAX)
+    formMessage.textContent = 'Pesan berhasil dikirim! Terima kasih.';
+    formMessage.classList.add('success');
+    form.reset();
+  });
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+</script>
 
 </body>
 </html>
+
